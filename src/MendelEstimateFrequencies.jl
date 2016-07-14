@@ -68,9 +68,9 @@ function EstimateFrequencies(control_file = ""; args...)
   # Execute the specifed analysis.
   #
   println(" \nAnalyzing the data.\n")
-  execution_error = estimate_frequencies_option(pedigree, person, nuclear_family,
-    locus, snpdata, locus_frame, phenotype_frame, pedigree_frame,
-    snp_definition_frame, keyword)
+  execution_error = false
+  skipped_loci = estimate_frequencies_option(pedigree, person, nuclear_family,
+      locus, locus_frame, phenotype_frame, pedigree_frame, keyword)
   if execution_error
     println(" \n \nERROR: Mendel terminated prematurely!\n")
   else
