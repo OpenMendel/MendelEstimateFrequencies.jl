@@ -52,8 +52,9 @@ function EstimateFrequencies(control_file = ""; args...)
   #
   # Check that the correct analysis option was specified.
   #
-  if (keyword["analysis_option"] != "" &&
-      keyword["analysis_option"] != "EstimateFrequencies")
+  lc_analysis_option = lowercase(keyword["analysis_option"])
+  if (lc_analysis_option != "" &&
+      lc_analysis_option != "estimatefrequencies")
      throw(ArgumentError(
        "An incorrect analysis option was specified.\n \n"))
   end
