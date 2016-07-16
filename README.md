@@ -1,6 +1,6 @@
 # MendelEstimateFrequencies
 
-[![Build Status](https://travis-ci.org/ericsobel/MendelEstimateFrequencies.jl.svg?branch=master)](https://travis-ci.org/ericsobel/MendelEstimateFrequencies.jl)
+[![Build Status](https://travis-ci.org/OpenMendel/MendelEstimateFrequencies.jl.svg?branch=master)](https://travis-ci.org/OpenMendel/MendelEstimateFrequencies.jl)
 
 This module estimates allele frequencies using full pedigree data relationships.
 
