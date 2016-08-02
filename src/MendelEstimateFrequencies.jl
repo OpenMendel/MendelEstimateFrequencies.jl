@@ -3,24 +3,25 @@ This module organizes estimation of allele frequencies from pedigree data.
 """
 module MendelEstimateFrequencies
 #
-# Other OpenMendel modules.
+# Required OpenMendel packages and modules.
 #
 using MendelBase
-# using DataStructures
-# using ModelConstruction
-# using ElstonStewartPreparation
-# using ElstonStewartEvaluation
-# using Optimize
+# using DataStructures                  # Now in MendelBase.
+# using ModelConstructions              # Now in MendelBase.
+# using ElstonStewartPreparations       # Now in MendelBase.
+# using ElstonStewartEvaluations        # Now in MendelBase.
+using Search
+using SearchSetup
 #
-# External modules.
+# Required external modules.
 #
-using DataFrames    # From package DataFrames.
-using Distributions # From package Distributions.
+using DataFrames                        # From package DataFrames.
+using Distributions                     # From package Distributions.
 
 export EstimateFrequencies
 
 """
-This is the wrapper function for the AIM Selection analysis option.
+This is the wrapper function for the Estimate Allele Frequency analysis option.
 """
 function EstimateFrequencies(control_file = ""; args...)
 
@@ -41,9 +42,10 @@ function EstimateFrequencies(control_file = ""; args...)
   #
   keyword = set_keyword_defaults!(Dict{ASCIIString, Any}())
   #
-  # Keywords unique to this analysis may be defined here
+  # Keywords unique to this analysis should be first defined here
   # by setting their default values using the format:
-  # keyword["some_keyword_name"] = value
+  # keyword["some_keyword_name"] = default_value
+  #
   #
   # Process the run-time user-specified keywords that will control the analysis.
   # This will also initialize the random number generator.
@@ -91,12 +93,19 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
   nuclear_family::NuclearFamily, locus::Locus, locus_frame::DataFrame, 
   phenotype_frame::DataFrame, pedigree_frame::DataFrame,
   keyword::Dict{ASCIIString, Any})
+
   io = keyword["output_unit"]
   skipped_loci = 0
   #
   # Eliminate genotypes but do not lump alleles at each locus.
   #
   keyword["eliminate_genotypes"] = true
+  #
+  # Add a frequency field to the locus file frame
+  # and an index n for the current position in the locus frame.
+  #
+  locus_frame[:PedFrequency] = zeros(size(locus_frame, 1))
+  n = 0
   #
   # Prepare to estimate allele frequencies at each locus.
   #
@@ -113,6 +122,7 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
     # Construct the parameter data structure.
     #
     keyword["constraints"] = 1
+    keyword["goal"] = "maximize"
     keyword["parameters"] = locus.alleles[loc]
     keyword["title"] = "Estimate Frequencies analyis for " * locus.name[loc]
     parameter = set_parameter_defaults(keyword)
@@ -126,6 +136,7 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
       println("One or more pedigrees exceeds the complexity threshold.")
       println("$locus.name[loc] is being skipped.")
       skipped_loci = skipped_loci + 1
+      n = n + locus.alleles[loc]
       continue
     end
     #
@@ -138,7 +149,12 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
       return (f, nothing, nothing)
     end # function fun
     (best_par, best_value) = optimize(fun, parameter)
+    for i = 1:locus.alleles[loc]
+      n = n + 1
+      locus_frame[n, :PedFrequency] = best_par[i]
+    end
   end
+  show(locus_frame)
   return skipped_loci
 end # function estimate_frequencies_option 
 

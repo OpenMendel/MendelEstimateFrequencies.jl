@@ -1,0 +1,12 @@
+#
+# Input and Output files.
+#
+locus_file = estimate frequencies 2 LocusFrame.txt
+pedigree_file = estimate frequencies 2 PedigreeFrame.txt
+phenotype_file = estimate frequencies 2 PhenotypeFrame.txt
+output_file = estimate frequencies 2 Output.txt
+#
+# Analysis parameters.
+#
+analysis_option = EstimateFrequencies
+
