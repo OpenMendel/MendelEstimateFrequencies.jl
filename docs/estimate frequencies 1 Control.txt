@@ -5,7 +5,5 @@ locus_file = estimate frequencies 1 LocusFrame.txt
 pedigree_file = estimate frequencies 1 PedigreeFrame.txt
 output_file = estimate frequencies 1 Output.txt
 #
-# Analysis parameters.
+# Analysis parameters for Estimate Frequencies option.
 #
-analysis_option = EstimateFrequencies
-

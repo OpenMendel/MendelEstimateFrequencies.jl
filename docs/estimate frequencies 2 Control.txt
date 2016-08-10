@@ -6,7 +6,5 @@ pedigree_file = estimate frequencies 2 PedigreeFrame.txt
 phenotype_file = estimate frequencies 2 PhenotypeFrame.txt
 output_file = estimate frequencies 2 Output.txt
 #
-# Analysis parameters.
+# Analysis parameters for Estimate Frequencies option.
 #
-analysis_option = EstimateFrequencies
-
