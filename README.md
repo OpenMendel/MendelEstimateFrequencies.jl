@@ -10,7 +10,7 @@ This [Julia](http://julialang.org/) package calculates a likelihood-based estima
 
 Within Julia, use the package manager to install MendelEstimateFrequencies:
 
-    Pkg.clone("git@github.com:OpenMendel/MendelEstimateFrequencies.jl.git")
+    Pkg.clone("https://github.com/OpenMendel/MendelEstimateFrequencies.jl.git")
 
 This package supports Julia v0.4.
 
