@@ -40,7 +40,7 @@ function EstimateFrequencies(control_file = ""; args...)
   # The user specifies the analysis to perform via a set of keywords.
   # Start the keywords at their default values.
   #
-  keyword = set_keyword_defaults!(Dict{ASCIIString, Any}())
+  keyword = set_keyword_defaults!(Dict{AbstractString, Any}())
   #
   # Keywords unique to this analysis should be first defined here
   # by setting their default values using the format:
@@ -92,7 +92,7 @@ end # function EstimateFrequencies
 function estimate_frequencies_option(pedigree::Pedigree, person::Person,
   nuclear_family::NuclearFamily, locus::Locus, locus_frame::DataFrame, 
   phenotype_frame::DataFrame, pedigree_frame::DataFrame,
-  keyword::Dict{ASCIIString, Any})
+  keyword::Dict{AbstractString, Any})
 
   io = keyword["output_unit"]
   skipped_loci = 0
