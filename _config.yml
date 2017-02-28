@@ -1,0 +1,8 @@
+title: MendelEstimateFrequencies.jl
+description: This analysis option calculates a likelihood-based estimate of allele frequencies.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
