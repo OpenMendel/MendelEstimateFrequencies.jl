@@ -6,19 +6,19 @@ This [Julia](http://julialang.org/) package calculates a likelihood-based estima
 
 ## Installation
 
-*Note: Three OpenMendel packages - [SnpArrays](https://github.com/OpenMendel/SnpArrays.jl), [Search](https://github.com/OpenMendel/Search.jl), and [MendelBase](https://github.com/OpenMendel/MendelBase.jl) must be installed before any Mendel analysis packages will run.*
+*Note: The three OpenMendel packages (1) [SnpArrays](https://openmendel.github.io/SnpArrays.jl/latest/), (2) [Search](https://openmendel.github.io/Search.jl), and (3) [MendelBase](https://openmendel.github.io/MendelBase.jl) must be installed before any other OpenMendel package will run. It is easiest if these three packages are installed in the above order and before any other OpenMendel package.*
 
 Within Julia, use the package manager to install MendelEstimateFrequencies:
 
     Pkg.clone("https://github.com/OpenMendel/MendelEstimateFrequencies.jl.git")
 
-This package supports Julia v0.4.
+This package supports Julia v0.4 and v0.5.
 
 ## Data Files
 
 To run this analysis package you will need to prepare a Control file and have your data files available. The Control file holds the names of your data files and any optional parameters for the analysis. Details on the general format and contents of the Control and data files can be found on the MendelBase [documentation page](https://openmendel.github.io/MendelBase.jl). Descriptions of the specific options available within the MendelEstimateFrequencies analysis package are in its [documentation page](https://openmendel.github.io/MendelEstimateFrequencies.jl).
 
-There are example data files in the "docs" subfolder of each Mendel package, for example, ~/.julia/v0.4/MendelEstimateFrequencies/docs.
+There are example data files in the "docs" subfolder of each Mendel package, for example, ~/.julia/v0.5/MendelEstimateFrequencies/docs.
 
 ## Running the Analysis
 
@@ -43,21 +43,6 @@ If you use this analysis package in your research, please cite the following ref
 *Lange K, Papp JC, Sinsheimer JS, Sripracha R, Zhou H, Sobel EM (2013) Mendel: The Swiss army knife of genetic analysis programs. Bioinformatics 29:1568-1570.*
 
 *Lange K, Sinsheimer JS, Sobel E (2005). Association testing with Mendel. Genetic Epidemiology 29:36-50.*
-
-<!--- ## Contributing
-We welcome contributions to this Open Source project. To contribute, follow this procedure ... --->
-
-## Acknowledgments
-
-This project is supported by the National Institutes of Health under NIGMS awards R01GM053275 and R25GM103774 and NHGRI award R01HG006139.
-## Citation
-
-If you use this analysis package in your research, please cite the following references in the resulting publications:
-
-Lange K, Papp JC, Sinsheimer JS, Sripracha R, Zhou H, Sobel EM (2013) Mendel: The Swiss army knife of genetic analysis programs. Bioinformatics 29:1568-1570.
-
-Lange K, Sinsheimer JS, Sobel E (2005). Association testing with Mendel. Genetic Epidemiology 29:36-50.
-
 
 <!--- ## Contributing
 We welcome contributions to this Open Source project. To contribute, follow this procedure ... --->
