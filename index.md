@@ -62,8 +62,7 @@ Finally, to run the analysis using the parameters in the control file Control_fi
 
 *Note: The package is called* MendelEstimateFrequencies *but the analysis function is called simply* EstimateFrequencies.
 
-### Interpreting the results
-
+<!--- ### Interpreting the results --->
 
 ### Citation
 
