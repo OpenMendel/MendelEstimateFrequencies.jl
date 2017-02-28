@@ -5,13 +5,13 @@ Mendel Estimate Frequencies is a component of the umbrella [OpenMendel](https://
 The Estimate Frequencies model applies to pedigrees, including those with missing marker data. With too many marker alleles computational efficiency suffers and large sample statistical assumptions become suspect. We recommend consolidating alleles until at most eight alleles remain and each has a frequency of 0.05 or greater. If the fraction of missing data is large, ethnic stratification may come into play. One remedy is to limit analysis to a single ethnic group; another is to use ethnic-specific allele frequencies. If you opt for the latter strategy, then you cannot simultaneously estimate allele frequencies and transmission parameters.
 
 ### Installation
-*Note: Three OpenMendel packages - [SnpArrays](https://github.com/OpenMendel/SnpArrays.jl), [Search](https://github.com/OpenMendel/Search.jl), and [MendelBase](https://github.com/OpenMendel/MendelBase.jl) must be installed before any Mendel analysis packages will run.*
+*Note: The three OpenMendel packages (1) [SnpArrays](https://openmendel.github.io/SnpArrays.jl/latest/), (2) [Search](https://openmendel.github.io/Search.jl), and (3) [MendelBase](https://openmendel.github.io/MendelBase.jl) must be installed before any other OpenMendel package will run. It is easiest if these three packages are installed in the above order and before any other OpenMendel package.*
 
 Within Julia, use the package manager to install MendelEstimateFrequencies:
 
     Pkg.clone("https://github.com/OpenMendel/MendelEstimateFrequencies.jl.git")
 
-This package supports Julia v0.4.
+This package supports Julia v0.4 and v0.5.
 
 ### Input Files
 The Mendel EstimateFrequencies analysis package uses the following input files. Example input files can be found in the [docs]( https://github.com/OpenMendel/MendelEstimateFrequencies.jl/tree/master/docs) subfolder of the Mendel EstimateFrequencies project. (An analysis won't always need every file type below.)
@@ -29,7 +29,6 @@ The Control file is a text file consisting of keywords and their assigned values
 	Keyword = Keyword_Value(s)
 
 Below is an example of a simple Control file to run EstimateFrequencies:
-
 
 	#
 	# Input and Output files.
