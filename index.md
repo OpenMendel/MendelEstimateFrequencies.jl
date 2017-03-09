@@ -23,7 +23,8 @@ The Mendel EstimateFrequencies analysis package uses the following input files. 
 * [SNP Definition File](https://openmendel.github.io/MendelBase.jl/#snp-definition-file): Defines your SNPs with information such as SNP name, chromosome, position, allele names, allele frequencies.
 * [SNP Data File](https://openmendel.github.io/MendelBase.jl/#snp-data-file): Holds the genotypes for your data set. Must be a standard binary PLINK BED file in SNP major format. If you have a SNP data file you must have a SNP definition file.
 
-### Control file<a id="control-file"></a>
+<a id="control-file"></a>
+### Control file
 The Control file is a text file consisting of keywords and their assigned values. The format of the Control file is:
 
 	Keyword = Keyword_Value(s)
@@ -44,7 +45,7 @@ Below is an example of a simple Control file to run EstimateFrequencies:
 In the example above, there are three keywords specifying the input files: *estimate frequencies 2 LocusFrame.txt*, *estimate frequencies 2 PedigreeFrame.txt*, and *estimate frequencies 2 PhenotypeFrame.txt*. There is one keyword specifying the standard output file: *estimate frequencies 2 Output.txt*. There are no analysis parameters specified for this run; all analysis parameters take the default values. The text after the '=' are the keyword values. A list of OpenMendel keywords common to most analysis package can be found [here](https://openmendel.github.io/MendelBase.jl/#keywords-table). The names of keywords are *not* case sensitive. (The keyword values *may* be case sensitive.)
 
 ### Data Files
-EstimateFrequencies requires a [Control file](https://openmendel.github.io/MendelBase.jl/#control-file), and a [Pedigree file](https://openmendel.github.io/MendelBase.jl/#pedigree-file). Genotype data can be included in the Pedigree file, in which case a [Locus file](https://openmendel.github.io/MendelBase.jl/#locus-file) is required. Alternatively, genotype data can be provided in a [SNP data file]( https://openmendel.github.io/MendelBase.jl/#snp-data-file), in which case a [SNP Definition File]( https://openmendel.github.io/MendelBase.jl/#snp-definition-file) is required. OpenMendel will also accept [PLINK format](http://pngu.mgh.harvard.edu/~purcell/plink/data.shtml) FAM and BIM files. Details on the format and contents of the Control and data files can be found on the [MendelBase](https://openmendel.github.io/MendelBase.jl) documentation page. There are example data files in the EstimateFrequencies [docs]( https://github.com/OpenMendel/MendelEstimateFrequencies.jl/tree/master/docs) folder.
+EstimateFrequencies requires a [Control file](https://openmendel.github.io/MendelBase.jl/#control-file), and a [Pedigree file](https://openmendel.github.io/MendelBase.jl/#pedigree-file). Genotype data can be included in the Pedigree file, in which case a [Locus file](https://openmendel.github.io/MendelBase.jl/#locus-file) is required. Alternatively, genotype data can be provided in a [SNP data file](https://openmendel.github.io/MendelBase.jl/#snp-data-file), in which case a [SNP Definition File](https://openmendel.github.io/MendelBase.jl/#snp-definition-file) is required. OpenMendel will also accept [PLINK format](http://zzz.bwh.harvard.edu/plink) FAM and BIM files. Details on the format and contents of the Control and data files can be found on the [MendelBase](https://openmendel.github.io/MendelBase.jl) documentation page. There are example data files in the EstimateFrequencies [docs](https://github.com/OpenMendel/MendelEstimateFrequencies.jl/tree/master/docs) folder.
 
 ### Running the Analysis
 
