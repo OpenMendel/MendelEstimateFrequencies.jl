@@ -11,7 +11,6 @@ using MendelBase
 # namely: DataStructures, ModelConstructions,
 # ElstonStewartPreparations, ElstonStewartEvaluations
 using MendelSearch
-using SearchSetup   # From package MendelSearch.
 #
 # Required external modules.
 #
@@ -24,7 +23,7 @@ This is the wrapper function for the Estimate Allele Frequency analysis option.
 """
 function EstimateFrequencies(control_file = ""; args...)
 
-  ESTIMATE_FREQUENCIES_VERSION :: VersionNumber = v"0.1.0"
+  ESTIMATE_FREQUENCIES_VERSION :: VersionNumber = v"0.5.0"
   #
   # Print the logo. Store the initial directory.
   #
