@@ -3,7 +3,7 @@ desc = "Estimating Marker Frequencies; part of the OpenMendel project."
 uuid = "69c378ae-356a-5145-bd42-d198b799bb89"
 version = "0.5.0"
 license = "MIT"
-authors = ["Kenneth Lange", "Eric Sobel"]
+authors = ["Kenneth Lange <klange@ucla.edu>", "Eric Sobel <esobel@ucla.edu>", "OpenMendel Team"]
 keywords = ["OpenMendel", "marker frequency"]
 
 [deps]
