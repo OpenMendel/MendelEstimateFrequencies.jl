@@ -1,0 +1,22 @@
+name = "MendelEstimateFrequencies"
+desc = "Estimating Marker Frequencies; part of the OpenMendel project."
+uuid = "69c378ae-356a-5145-bd42-d198b799bb89"
+version = "0.5.0"
+license = "MIT"
+authors = ["Kenneth Lange", "Eric Sobel"]
+keywords = ["OpenMendel", "marker frequency"]
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+MendelBase = "4fb2d825-8540-5432-a3a3-b9ff66df2cb5"
+MendelSearch = "4fa469e6-9890-5c68-874e-584f43f9cdde"
+
+[compat]
+julia = "1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

@@ -93,4 +93,4 @@ iter  steps   function    freq 1      freq 2
  
   7    0   -8.4373e+00   4.1421e-01  5.8579e-01 
  
-The maximum function value of -8.43728 occurs at iteration 7.
+The maximum function value of -8.43728 occurs at iteration 6.

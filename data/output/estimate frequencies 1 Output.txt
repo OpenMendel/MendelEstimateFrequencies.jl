@@ -32,7 +32,7 @@ iter  steps   function    freq 1      freq 2
  
   5    0   -3.1911e+02   6.5986e-01  3.4014e-01 
  
-  6    2   -3.1911e+02   6.5986e-01  3.4014e-01 
+  6    1   -3.1911e+02   6.5986e-01  3.4014e-01 
  
   7    0   -3.1911e+02   6.5986e-01  3.4014e-01 
  
@@ -69,13 +69,13 @@ iter  steps   function    freq 1      freq 2
  
   4    0   -3.2326e+02   6.5470e-01  3.4530e-01 
  
-  5    1   -3.2326e+02   6.5470e-01  3.4530e-01 
+  5    0   -3.2326e+02   6.5470e-01  3.4530e-01 
  
   6    1   -3.2326e+02   6.5470e-01  3.4530e-01 
  
-  7    3   -3.2326e+02   6.5470e-01  3.4530e-01 
+  7    0   -3.2326e+02   6.5470e-01  3.4530e-01 
  
-The maximum function value of -323.26031 occurs at iteration 6.
+The maximum function value of -323.26031 occurs at iteration 7.
  
                 Search, Julia Version
 
@@ -110,9 +110,9 @@ iter  steps   function    freq 1      freq 2
  
   5    3   -3.5762e+02   5.7160e-01  4.2840e-01 
  
-  6    1   -3.5762e+02   5.7160e-01  4.2840e-01 
+  6    3   -3.5762e+02   5.7160e-01  4.2840e-01 
  
-  7    0   -3.5762e+02   5.7160e-01  4.2840e-01 
+  7    2   -3.5762e+02   5.7160e-01  4.2840e-01 
  
 The maximum function value of -357.62341 occurs at iteration 4.
  
@@ -186,13 +186,13 @@ iter  steps   function    freq 1      freq 2
  
   4    0   -3.2360e+02   6.5998e-01  3.4002e-01 
  
-  5    1   -3.2360e+02   6.5998e-01  3.4002e-01 
+  5    0   -3.2360e+02   6.5998e-01  3.4002e-01 
  
   6    1   -3.2360e+02   6.5998e-01  3.4002e-01 
  
-  7    1   -3.2360e+02   6.5998e-01  3.4002e-01 
+  7    3   -3.2360e+02   6.5998e-01  3.4002e-01 
  
-The maximum function value of -323.59828 occurs at iteration 7.
+The maximum function value of -323.59828 occurs at iteration 6.
  
                 Search, Julia Version
 
@@ -227,11 +227,11 @@ iter  steps   function    freq 1      freq 2
  
   5    0   -3.5363e+02   4.2270e-01  5.7730e-01 
  
-  6    1   -3.5363e+02   4.2270e-01  5.7730e-01 
+  6    2   -3.5363e+02   4.2270e-01  5.7730e-01 
  
-  7    1   -3.5363e+02   4.2270e-01  5.7730e-01 
+  7    0   -3.5363e+02   4.2270e-01  5.7730e-01 
  
-The maximum function value of -353.62772 occurs at iteration 5.
+The maximum function value of -353.62772 occurs at iteration 7.
  
                 Search, Julia Version
 
@@ -262,13 +262,13 @@ iter  steps   function    freq 1      freq 2
  
   3    0   -3.4783e+02   5.0739e-01  4.9261e-01 
  
-  4    2   -3.4783e+02   5.0739e-01  4.9261e-01 
+  4    3   -3.4783e+02   5.0739e-01  4.9261e-01 
  
-  5    1   -3.4783e+02   5.0739e-01  4.9261e-01 
+  5    3   -3.4783e+02   5.0739e-01  4.9261e-01 
  
   6    2   -3.4783e+02   5.0739e-01  4.9261e-01 
  
-The maximum function value of -347.82535 occurs at iteration 6.
+The maximum function value of -347.82535 occurs at iteration 4.
  
                 Search, Julia Version
 
@@ -299,11 +299,11 @@ iter  steps   function    freq 1      freq 2
  
   3    0   -3.6486e+02   4.8243e-01  5.1757e-01 
  
-  4    2   -3.6486e+02   4.8243e-01  5.1757e-01 
+  4    0   -3.6486e+02   4.8243e-01  5.1757e-01 
  
-  5    3   -3.6486e+02   4.8243e-01  5.1757e-01 
+  5    0   -3.6486e+02   4.8243e-01  5.1757e-01 
  
-  6    2   -3.6486e+02   4.8243e-01  5.1757e-01 
+  6    0   -3.6486e+02   4.8243e-01  5.1757e-01 
  
 The maximum function value of -364.86086 occurs at iteration 6.
  
@@ -338,11 +338,11 @@ iter  steps   function    freq 1      freq 2
  
   4    0   -3.4247e+02   4.8396e-01  5.1604e-01 
  
-  5    1   -3.4247e+02   4.8396e-01  5.1604e-01 
+  5    3   -3.4247e+02   4.8396e-01  5.1604e-01 
  
-  6    3   -3.4247e+02   4.8396e-01  5.1604e-01 
+  6    1   -3.4247e+02   4.8396e-01  5.1604e-01 
  
-The maximum function value of -342.46675 occurs at iteration 5.
+The maximum function value of -342.46675 occurs at iteration 4.
  
                 Search, Julia Version
 
@@ -375,8 +375,8 @@ iter  steps   function    freq 1      freq 2
  
   4    2   -3.5863e+02   4.9123e-01  5.0877e-01 
  
-  5    2   -3.5863e+02   4.9123e-01  5.0877e-01 
+  5    3   -3.5863e+02   4.9123e-01  5.0877e-01 
  
-  6    1   -3.5863e+02   4.9123e-01  5.0877e-01 
+  6    3   -3.5863e+02   4.9123e-01  5.0877e-01 
  
 The maximum function value of -358.62801 occurs at iteration 4.

@@ -1,3 +1,5 @@
+__precompile__()
+
 """
 This module organizes estimation of allele frequencies from pedigree data.
 """
@@ -6,17 +8,15 @@ module MendelEstimateFrequencies
 # Required OpenMendel packages and modules.
 #
 using MendelBase
-# using DataStructures                  # Now in MendelBase.
-# using ModelConstructions              # Now in MendelBase.
-# using ElstonStewartPreparations       # Now in MendelBase.
-# using ElstonStewartEvaluations        # Now in MendelBase.
-using Search
-using SearchSetup
+# namely: DataStructures, ModelConstructions,
+# ElstonStewartPreparations, ElstonStewartEvaluations
+using MendelSearch
+using SearchSetup   # From package MendelSearch.
 #
 # Required external modules.
 #
-using DataFrames                        # From package DataFrames.
-using Distributions                     # From package Distributions.
+using DataFrames
+using Distributions
 
 export EstimateFrequencies
 """
@@ -24,7 +24,7 @@ This is the wrapper function for the Estimate Allele Frequency analysis option.
 """
 function EstimateFrequencies(control_file = ""; args...)
 
-  const ESTIMATE_FREQUENCIES_VERSION :: VersionNumber = v"0.1.0"
+  ESTIMATE_FREQUENCIES_VERSION :: VersionNumber = v"0.1.0"
   #
   # Print the logo. Store the initial directory.
   #
@@ -110,7 +110,7 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
   #
   (model_loci, locus.model_loci) = (locus.model_loci, 1)
   model_locus = similar(locus.model_locus)
-  copy!(model_locus, locus.model_locus)
+  copyto!(model_locus, locus.model_locus)
   locus.model_locus = zeros(Int, 1)
   #
   # Loop over all loci.
@@ -140,16 +140,16 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
       continue
     end
     #
-    # Pass the variables to optimize for maximum likelihood estimation.
+    # Pass the variables to search for maximum likelihood estimation.
     #
     function fun(par)
-      copy!(parameter.par, par)
+      copyto!(parameter.par, par)
       f = elston_stewart_loglikelihood(penetrance_estimate_frequencies,
         prior_estimate_frequencies, transmission_estimate_frequencies,
         pedigree, person, locus, parameter, instruction, keyword)
       return (f, nothing, nothing)
     end # function fun
-    (best_par, best_value) = optimize(fun, parameter)
+    (best_par, best_value) = mendel_search(fun, parameter)
     for i = 1:locus.alleles[loc]
       n = n + 1
       locus_frame[n, :PedFrequency] = best_par[i]
@@ -238,9 +238,16 @@ function initialize_optimization_estimate_frequencies!(locus::Locus,
   #
   # Force the parameter frequencies to sum to 1.0.
   #
-  parameter.constraint[1, :] = 1.0
+  parameter.constraint[1, :] .= 1.0
   parameter.constraint_level[1] = 1.0
   return parameter
 end # function initialize_optimization_estimate_frequencies!
+#
+# Method to obtain path to this package's data files
+# so they can be used in the documentation and testing routines.
+# For example, datadir("Control file.txt") will return
+# "/path/to/package/data/Control file.txt"
+#
+datadir(parts...) = joinpath(@__DIR__, "..", "data", parts...)
 
 end # module MendelEstimateFrequencies
