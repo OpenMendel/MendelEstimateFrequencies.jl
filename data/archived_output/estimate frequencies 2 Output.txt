@@ -1,7 +1,7 @@
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for MD
 Grid or search option: search
@@ -58,7 +58,7 @@ The maximum function value of -8.08193 occurs at iteration 16.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for Se
 Grid or search option: search

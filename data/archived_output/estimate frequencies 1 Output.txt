@@ -1,7 +1,7 @@
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP1
 Grid or search option: search
@@ -40,7 +40,7 @@ The maximum function value of -319.11062 occurs at iteration 7.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP2
 Grid or search option: search
@@ -79,7 +79,7 @@ The maximum function value of -323.26031 occurs at iteration 7.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP3
 Grid or search option: search
@@ -118,7 +118,7 @@ The maximum function value of -357.62341 occurs at iteration 4.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP4
 Grid or search option: search
@@ -157,7 +157,7 @@ The maximum function value of -328.12069 occurs at iteration 6.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP5
 Grid or search option: search
@@ -196,7 +196,7 @@ The maximum function value of -323.59828 occurs at iteration 6.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP6
 Grid or search option: search
@@ -235,7 +235,7 @@ The maximum function value of -353.62772 occurs at iteration 7.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP7
 Grid or search option: search
@@ -272,7 +272,7 @@ The maximum function value of -347.82535 occurs at iteration 4.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for ID
 Grid or search option: search
@@ -309,7 +309,7 @@ The maximum function value of -364.86086 occurs at iteration 6.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for SNP9
 Grid or search option: search
@@ -346,7 +346,7 @@ The maximum function value of -342.46675 occurs at iteration 4.
  
                 Search, Julia Version
 
-            (c) Copyright Kenneth Lange, 2016
+            (c) Copyright Kenneth Lange, 2019
 
 Title: Estimate Frequencies analyis for CT
 Grid or search option: search
