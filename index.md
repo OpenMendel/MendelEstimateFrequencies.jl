@@ -2,7 +2,7 @@
 Mendel Estimate Frequencies is a component of the umbrella [OpenMendel](https://openmendel.github.io) project.
 
 ### Appropriate Problems and Data Sets
-The Estimate Frequencies model applies to pedigrees, including those with missing marker data. With too many marker alleles computational efficiency suffers and large sample statistical assumptions become suspect. We recommend consolidating alleles until at most eight alleles remain and each has a frequency of 0.05 or greater. If the fraction of missing data is large, ethnic stratification may come into play. One remedy is to limit analysis to a single ethnic group; another is to use ethnic-specific allele frequencies. If you opt for the latter strategy, then you cannot simultaneously estimate allele frequencies and transmission parameters.
+The Estimate Frequencies model applies to pedigrees, including those with missing marker data. This option can handle noncodominant markers and markers with more than 2 alleles. With too many marker alleles computational efficiency suffers and large sample statistical assumptions become suspect. We recommend consolidating alleles until at most eight alleles remain and each has a frequency of 0.05 or greater.
 
 ### Installation
 *Note: The three OpenMendel packages (1) [SnpArrays](https://openmendel.github.io/SnpArrays.jl/latest/), (2) [MendelSearch](https://openmendel.github.io/MendelSearch.jl), and (3) [MendelBase](https://openmendel.github.io/MendelBase.jl) must be installed before any other OpenMendel package will run. It is easiest if these three packages are installed in the above order and before any other OpenMendel package.*
@@ -69,7 +69,7 @@ Finally, to run the analysis using the parameters in your Control file, for exam
 
 If you use this analysis package in your research, please cite the following reference in the resulting publications:
 
-*Lange K, Papp JC, Sinsheimer JS, Sripracha R, Zhou H, Sobel EM (2013) Mendel: The Swiss army knife of genetic analysis programs. Bioinformatics 29:1568-1570.*
+*OPENMENDEL: a cooperative programming project for statistical genetics. Zhou H, Sinsheimer JS, Bates DM, Chu BB, German CA, Ji SS, Keys KL, Kim J, Ko S, Mosher GD, Papp JC, Sobel EM, Zhai J, Zhou JJ, Lange K. Hum Genet. 2019 Mar 26. doi: 10.1007/s00439-019-02001-z. [Epub ahead of print] PMID: 30915546*
 
 <!--- ### Contributing
 We welcome contributions to this Open Source project. To contribute, follow this procedure ... --->
