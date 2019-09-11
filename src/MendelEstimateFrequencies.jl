@@ -22,15 +22,12 @@ export EstimateFrequencies
 This is the wrapper function for the Estimate Allele Frequency analysis option.
 """
 function EstimateFrequencies(control_file = ""; args...)
-
-  ESTIMATE_FREQUENCIES_VERSION :: VersionNumber = v"0.5.0"
   #
   # Print the logo. Store the initial directory.
   #
   print(" \n \n")
   println("     Welcome to OpenMendel's")
   println("  Estimate Frequencies analysis option")
-  println("        version ", ESTIMATE_FREQUENCIES_VERSION)
   print(" \n \n")
   println("Reading the data.\n")
   initial_directory = pwd()
@@ -63,7 +60,7 @@ function EstimateFrequencies(control_file = ""; args...)
   # Read the genetic data from the external files named in the keywords.
   #
   (pedigree, person, nuclear_family, locus, snpdata,
-    locus_frame, phenotype_frame, pedigree_frame, snp_definition_frame) =
+    locus_frame, phenotype_frame, person_frame, snp_definition_frame) =
     read_external_data_files(keyword)
   #
   # Check if SNP data were read.
@@ -77,7 +74,7 @@ function EstimateFrequencies(control_file = ""; args...)
     println(" \nAnalyzing the data.\n")
     execution_error = false
     skipped_loci = estimate_frequencies_option(pedigree, person, nuclear_family,
-        locus, locus_frame, phenotype_frame, pedigree_frame, keyword)
+        locus, locus_frame, phenotype_frame, person_frame, keyword)
     if execution_error
       println(" \n \nERROR: Mendel terminated prematurely!\n")
     else
@@ -96,7 +93,7 @@ end # function EstimateFrequencies
 
 function estimate_frequencies_option(pedigree::Pedigree, person::Person,
   nuclear_family::NuclearFamily, locus::Locus, locus_frame::DataFrame,
-  phenotype_frame::DataFrame, pedigree_frame::DataFrame,
+  phenotype_frame::DataFrame, person_frame::DataFrame,
   keyword::Dict{AbstractString, Any})
 
   io = keyword["output_unit"]
@@ -109,7 +106,7 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
   # Add a frequency field to the locus file frame
   # and an index n for the current position in the locus frame.
   #
-  locus_frame[:PedFrequency] = zeros(size(locus_frame, 1))
+  locus_frame[!, :FrequencyEstimate] = zeros(size(locus_frame, 1))
   n = 0
   #
   # Prepare to estimate allele frequencies at each locus.
@@ -152,13 +149,13 @@ function estimate_frequencies_option(pedigree::Pedigree, person::Person,
       copyto!(parameter.par, par)
       f = elston_stewart_loglikelihood(penetrance_estimate_frequencies,
         prior_estimate_frequencies, transmission_estimate_frequencies,
-        pedigree, person, locus, parameter, instruction, keyword)
+        pedigree, person, locus, parameter, instruction, person_frame, keyword)
       return (f, nothing, nothing)
     end # function fun
     (best_par, best_value) = mendel_search(fun, parameter)
     for i = 1:locus.alleles[loc]
       n = n + 1
-      locus_frame[n, :PedFrequency] = best_par[i]
+      locus_frame[n, :FrequencyEstimate] = best_par[i]
     end
   end
   show(locus_frame)
@@ -169,8 +166,8 @@ end # function estimate_frequencies_option
 Supply a penetrance for individual i.
 """
 function penetrance_estimate_frequencies(person::Person, locus::Locus,
-  multi_genotype::Matrix{Int}, par::Vector{Float64},
-  keyword::Dict{AbstractString, Any}, start::Int, finish::Int, i::Int)
+  multi_genotype::Matrix{Int}, par::Vector{Float64}, person_frame::DataFrame,
+  keyword::Dict{AbstractString, Any}, startlocus::Int, endlocus::Int, i::Int)
 
   pen = 1.0
   return pen
@@ -180,11 +177,11 @@ end # function penetrance_estimate_frequencies
 Supply a prior probability for founder i.
 """
 function prior_estimate_frequencies(person::Person, locus::Locus,
-  multi_genotype::Matrix{Int}, par::Vector{Float64},
-  keyword::Dict{AbstractString, Any}, start::Int, finish::Int, i::Int)
+  multi_genotype::Matrix{Int}, par::Vector{Float64}, person_frame::DataFrame,
+  keyword::Dict{AbstractString, Any}, startlocus::Int, endlocus::Int, i::Int)
 
   prior_prob = 1.0
-  for l = start:finish
+  for l = startlocus:endlocus
     loc = locus.model_locus[l]
     allele = multi_genotype[1, l]
     frequency = par[allele]
@@ -204,12 +201,13 @@ genotype transmits a particular gamete to his or her child j.
 """
 function transmission_estimate_frequencies(person::Person, locus::Locus,
   gamete::Vector{Int}, multi_genotype::Matrix{Int}, par::Vector{Float64},
-  keyword::Dict{AbstractString, Any}, start::Int, finish::Int, i::Int, j::Int)
+  person_frame::DataFrame, keyword::Dict{AbstractString, Any},
+  startlocus::Int, endlocus::Int, i::Int, j::Int)
   #
   # For male to male inheritance at an x-linked locus,
   # set the transmission probability equal to 1.
   #
-  loc = locus.model_locus[start]
+  loc = locus.model_locus[startlocus]
   xlinked = locus.xlinked[loc]
   if xlinked && person.male[i] && person.male[j]
     return 1.0
@@ -217,9 +215,9 @@ function transmission_estimate_frequencies(person::Person, locus::Locus,
   #
   # Apply Mendel's segregation rules.
   #
-  k = multi_genotype[1, start]
-  l = multi_genotype[2, start]
-  m = gamete[start]
+  k = multi_genotype[1, startlocus]
+  l = multi_genotype[2, startlocus]
+  m = gamete[startlocus]
   trans = 0.0
   if k == m; trans = trans + 0.5; end
   if l == m; trans = trans + 0.5; end
